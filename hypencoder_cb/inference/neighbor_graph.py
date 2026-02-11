@@ -22,7 +22,6 @@ def get_embeddings(path: str) -> Tuple[torch.Tensor, List[str], List[str]]:
 
     return item_embeddings, item_ids, item_texts
 
-
 def embedding_search(
     query_embeddings: torch.Tensor,
     item_embeddings: torch.Tensor,
@@ -40,7 +39,6 @@ def embedding_search(
         top_k_items = torch.topk(similarity, top_k, dim=1).indices.cpu()
         yield (top_k_items, batch_offset)
         batch_offset += batch.shape[0]
-
 
 def create_item_graph_with_item_embedding_search(
     encoded_items_path: str,

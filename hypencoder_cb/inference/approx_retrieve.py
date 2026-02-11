@@ -7,8 +7,7 @@ from typing import Dict, List, Optional, Union
 
 import fire
 import torch
-from numpy import copy
-# import copy
+from copy import copy
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
@@ -93,8 +92,6 @@ class HypecoderGraphRetriever(BaseRetriever):
             .eval()
         )
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-
-        print("Using numpy copy and prev_candidates = copy(candidates)")
 
         if cache_file is not None and os.path.exists(cache_file):
             print(f"Loading from cache {cache_file}")

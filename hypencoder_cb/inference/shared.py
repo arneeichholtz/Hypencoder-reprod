@@ -95,6 +95,8 @@ class BaseEncoder:
 def encode_items(
     encoder: BaseEncoder, items: Iterable[Item], batch_size: int = 32
 ) -> Iterable[EncodedItem]:
+
+    start = time.time()
     with tqdm() as pbar:
         for batch in BackgroundGenerator(batchify(items, batch_size), 10):
             output = encoder.batch_encode([item.text for item in batch])
@@ -110,6 +112,10 @@ def encode_items(
                     representation=encoded_rep,
                     id=item.id,
                 )
+    
+    end = time.time()
+    duration = end - start
+    print(f"Encoding time: {duration:.2f} seconds. This is {duration / 3600:.2f} hours.")
 
 
 def encode_items_to_disk(
