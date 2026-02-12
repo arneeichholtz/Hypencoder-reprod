@@ -224,18 +224,29 @@ python script/load_data.py \
 
 ## Extensions
 ### Retrieve with Faiss
-BE-Base evaluation is performed without a separate encoding script, the dataset is encoded on-the-fly and performs optimized Faiss retrieval: 
-```
-export SAVE_ENCODED_DOCS_PATH="$HOME/hypencoder/encoded_items/be_base/trec-tot"
-mkdir -p "$SAVE_ENCODED_DOCS_PATH"
+To use BE-Base with Faiss, there is a dedicated `encode` script that should be used:
 
-python scripts/evaluate_bebase_faiss.py \
-    --model_name_or_path=[path_to_be_base_checkpoint] \
-    --ir_dataset_name=trec-tot/2023/dev \
-    --output_dir="$HOME/hypencoder/retrieval_outputs/be_base/trec-tot" \
-    --save_encoded_docs_path="$SAVE_ENCODED_DOCS_PATH"
 ```
-This script uses the tokenizer with the checkpoint, encodes both documents and queries using the BE-base dual encoder, and reports standard IR metrics via `ir_measures`. If you already encoded the corpus via `hypencoder_cb/inference/encode.py`, pass `--encoded_docs_path=/path/to/encoded/docs` to skip re-encoding and load the DocList artifacts directly. To persist freshly encoded documents for reuse, add `--save_encoded_docs_path=/path/to/save/doclist` and the script will export a DocList compatible with `load_encoded_items_from_disk`.
+python scripts/be_base/encode_bebase.py \
+	--model_name_or_path=[path_to_be_base_checkpoint] \
+	--ir_dataset_name="beir/hotpotqa/test" \
+	--output_path=[encoded_items_folder/data].docs \
+	--batch_size=64
+```
+
+And there is a specific script to handle retrieval using Faiss. Note that `faiss-gpu` should be installed in the enviroment prior to running. The script can be called as follows:
+
+```
+python scripts/be_base/retrieve_bebase_faiss.py \
+	--model_name_or_path=[path_to_be_base_checkpoint] \
+	--ir_dataset_name="beir/hotpotqa/test" \
+	--encoded_docs_path=[encoded_items_folder/data].docs  \          # Same path for encoding
+	--output_dir=[retrieval_output_folder] \
+	--top_k=1000
+
+```
+
+This script uses the tokenizer with the checkpoint, encodes both documents and queries using the BE-base dual encoder, and reports standard IR metrics via `ir_measures`.
 
 ### Fine-tune Hypencoder Reproduction
 ```
