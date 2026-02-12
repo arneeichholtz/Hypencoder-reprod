@@ -22,7 +22,7 @@ The core code, data, and models are now available. This means you can train your
 ## Installation
 ### Copy the Repo
 ```
-git clone https://github.com/juttevijverberg/hypencoder.git
+git clone [github link]
 ```
 
 ### Make a conda environment and install the requirements
