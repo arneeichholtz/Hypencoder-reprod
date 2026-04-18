@@ -16,7 +16,7 @@ from hypencoder_cb.inference.shared import (
     BaseRetriever,
     Item,
     TextQuery,
-    load_encoded_items_from_disk,
+    load_encoded_items_from_disk
 )
 from hypencoder_cb.modeling.hypencoder import HypencoderDualEncoder
 from hypencoder_cb.utils.jsonl_utils import JsonlReader
