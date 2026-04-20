@@ -174,4 +174,5 @@ cython_debug/
 
 approx_retrieval_outputs/
 jobs/
+imgs/
 
