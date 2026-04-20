@@ -3,7 +3,7 @@ This repository was adapted from the repo for the original paper, "Hypencoder: H
 
 The core code, data, and models are now available. This means you can train your own Hypencoder, use a pre-trained Hypencoder off-the-shelf, and reproduce the major results from the paper exactly.
 
-![main_image]('imgs/Figure 1.pdf')
+![main_image](imgs/Figure 1.jpg)
 
 <h4 align="center">
     <p>
