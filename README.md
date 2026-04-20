@@ -1,7 +1,5 @@
 # Hypencoder Reproduction
-This repository was adapted from the repo for the original paper, "Hypencoder: Hypernetworks for Information Retrieval" by Killingback et al. Link: https://arxiv.org/pdf/2502.05364
-
-The core code, data, and models are now available. This means you can train your own Hypencoder, use a pre-trained Hypencoder off-the-shelf, and reproduce the major results from the paper exactly.
+This repository was adapted from the repo for the original paper, "Hypencoder: Hypernetworks for Information Retrieval" by Killingback et al. Paper link: https://arxiv.org/pdf/2502.05364
 
 ![main_image](imgs/Figure_1.jpg)
 
@@ -21,7 +19,7 @@ The core code, data, and models are now available. This means you can train your
 ## Installation
 ### Copy the Repo
 ```
-git clone [github link]
+git clone https://github.com/arneeichholtz/Hypencoder-reprod.git
 ```
 
 ### Make a conda environment and install the requirements
