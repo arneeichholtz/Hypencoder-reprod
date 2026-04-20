@@ -1,7 +1,7 @@
 # Hypencoder Reproduction
 This repository was adapted from the repo for the original paper, "Hypencoder: Hypernetworks for Information Retrieval" by Killingback et al. Paper link: https://arxiv.org/pdf/2502.05364
 
-![main_image](imgs/Figure_1.jpg)
+![main_image](imgs/main_image/Figure_1.jpg)
 
 <h4 align="center">
     <p>
